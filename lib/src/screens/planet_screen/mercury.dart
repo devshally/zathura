@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/route_manager.dart';
+import 'package:zathura_v1/src/core/widgets/action_button.dart';
 import 'package:zathura_v1/src/screens/trips/mercurytrips.dart';
 
 void main() {
-  runApp(mercury());
+  runApp(Mercury());
 }
 
-class mercury extends StatelessWidget {
+class Mercury extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -59,70 +60,52 @@ class mercury extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 12.0, vertical: 8.0),
                   child: Text(
                     'Mercury does not have any moons or rings.',
-                    style: TextStyle(color: Colors.white, fontSize: 12.0, fontFamily: 'Poppins'),
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 12.0,
+                        fontFamily: 'Poppins'),
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 12.0, vertical: 8.0),
                   child: Text(
                     'Mercury is the smallest planet.',
                     style: TextStyle(color: Colors.white, fontSize: 11.0),
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 12.0, vertical: 8.0),
                   child: Text(
                     'Your weight in Mercury would be 38% of your weight on Earth.',
                     style: TextStyle(color: Colors.white, fontSize: 11.0),
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 12.0, vertical: 8.0),
                   child: Text(
                     'A day on the surface of Mercury lasts 176 Earth days.',
                     style: TextStyle(color: Colors.white, fontSize: 11.0),
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 12.0, vertical: 8.0),
                   child: Text(
                     'A year on Mercury takes 88 Earth days.',
                     style: TextStyle(color: Colors.white, fontSize: 11.0),
                   ),
                 ),
-                Stack(
-                  alignment: AlignmentDirectional.bottomStart,
-                  children: [
-                    Center(
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 17.0),
-                        child: Container(
-                          height: 50.0,
-                          width: 340.0,
-                          child: RaisedButton(
-                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4.0)),
-                            color: Colors.amber,
-                            onPressed: () {
-                              Get.to(mercuryTrips());
-                            },
-                            child: Text(
-                              'Explore Mercury',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontFamily: 'Poppins',
-                                //fontWeight: FontWeight.bold,
-                                fontSize: 15.0,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+                ActionButton(buttonName: 'Explore Mercury',
+                  onPressed: () {
+                    Get.to(mercuryTrips());
+                  },),
               ],
             ),
           ],
@@ -131,4 +114,3 @@ class mercury extends StatelessWidget {
     );
   }
 }
-

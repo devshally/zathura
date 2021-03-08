@@ -135,7 +135,7 @@ class homeScreen extends StatelessWidget {
                                   )),
                               FlatButton(
                                 onPressed: () {
-                                  Get.to(mercury());
+                                  Get.to(Mercury());
                                 },
                                 child: Text(
                                   'Mercury',

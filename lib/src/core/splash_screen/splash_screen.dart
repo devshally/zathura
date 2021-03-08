@@ -24,7 +24,7 @@ class splashScreen extends StatelessWidget {
           ),
         ),
       ),
-      nextScreen: onBoarding(),
+      nextScreen: OnBoarding(),
     );
   }
 }

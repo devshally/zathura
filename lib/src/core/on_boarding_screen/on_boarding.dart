@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
 import 'package:zathura_v1/src/core/home_screen/home.dart';
 
-class onBoarding extends StatefulWidget {
+class OnBoarding extends StatefulWidget {
   @override
-  _onBoardingState createState() => _onBoardingState();
+  _OnBoardingState createState() => _OnBoardingState();
 }
 final PageController pageController = PageController(initialPage: 0);
 int numPages = 3;
@@ -33,7 +33,7 @@ Widget indicator(bool isActive) {
   );
 }
 
-class _onBoardingState extends State<onBoarding> {
+class _OnBoardingState extends State<OnBoarding> {
   get pageController => null;
 
   @override
@@ -172,7 +172,7 @@ class _onBoardingState extends State<onBoarding> {
                   child: Container(
                     height: 50.0,
                     width: 340.0,
-                    child: RaisedButton(
+                    child: MaterialButton(
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4.0)),
                       color: Colors.amber,
                       onPressed: () {

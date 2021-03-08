@@ -11,7 +11,7 @@ void main(){
     debugShowCheckedModeBanner: false,
     getPages: [
       GetPage(name: '/', page: ()=> splashScreen()),
-      GetPage(name: '/onBoarding', page: ()=> onBoarding()),
+      GetPage(name: '/onBoarding', page: ()=> OnBoarding()),
       GetPage(name: '/Home', page: ()=> homeScreen()),
     ],
     home: splashScreen(),

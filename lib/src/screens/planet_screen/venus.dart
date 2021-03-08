@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/route_manager.dart';
+import 'package:zathura_v1/src/core/widgets/action_button.dart';
 
 void main(){
   runApp(venus());
@@ -92,36 +93,10 @@ class venus extends StatelessWidget {
                     style: TextStyle(color: Colors.white, fontSize: 11.0),
                   ),
                 ),
-                Stack(
-                  alignment: AlignmentDirectional.bottomStart,
-                  children: [
-                    Center(
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 17.0),
-                        child: Container(
-                          height: 50.0,
-                          width: 340.0,
-                          child: RaisedButton(
-                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4.0)),
-                            color: Colors.amber,
-                            onPressed: () {
-                              print('Exploring Venus!');
-                            },
-                            child: Text(
-                              'Explore Venus',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontFamily: 'Poppins',
-                                //fontWeight: FontWeight.bold,
-                                fontSize: 15.0,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+                ActionButton(buttonName: 'Explore Venus',
+                  onPressed: () {
+                    print('Exploring Venus');
+                  },),
               ],
             ),
           ],
