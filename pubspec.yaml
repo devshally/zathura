@@ -17,6 +17,7 @@ dependencies:
   animated_splash_screen: ^1.1.0
   intl: ^0.17.0
   material_floating_search_bar: ^0.2.6
+  flappy_search_bar: ^1.7.2
 
 dev_dependencies:
   flutter_test:

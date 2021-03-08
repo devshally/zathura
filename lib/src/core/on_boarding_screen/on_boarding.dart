@@ -176,7 +176,7 @@ class _OnBoardingState extends State<OnBoarding> {
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4.0)),
                       color: Colors.amber,
                       onPressed: () {
-                        Get.off(homeScreen());
+                        Get.off(HomeScreen());
                       },
                       child: Text(
                         'Get started',

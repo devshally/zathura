@@ -8,10 +8,10 @@ bigger and the search bar should contain text.
 
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart' show DateFormat;
-// import 'package:flappy_search_bar/flappy_search_bar.dart';
-// import 'package:flappy_search_bar/search_bar_style.dart';
 import 'package:get/get.dart';
 import 'package:get/route_manager.dart';
+import 'package:zathura_v1/src/core/widgets/planet_button.dart';
+import 'package:zathura_v1/src/core/widgets/search_bar.dart';
 import 'package:zathura_v1/src/screens/planet_screen/earth.dart';
 import 'package:zathura_v1/src/screens/planet_screen/jupiter.dart';
 import 'package:zathura_v1/src/screens/planet_screen/mars.dart';
@@ -30,10 +30,10 @@ class Post {
 }
 
 void main() {
-  runApp(homeScreen());
+  runApp(HomeScreen());
 }
 
-class homeScreen extends StatelessWidget {
+class HomeScreen extends StatelessWidget {
   Future<List<Post>> search(String search) async {
     await Future.delayed(Duration(seconds: 2));
     return List.generate(search.length, (int index) {
@@ -64,6 +64,7 @@ class homeScreen extends StatelessWidget {
               children: [
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: <Widget>[
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 1.0),
@@ -88,30 +89,7 @@ class homeScreen extends StatelessWidget {
                         ),
                       ),
                     ),
-//                     Container(
-//                       height: 100.0,
-//                       child: SearchBar<Post>(
-//                         onSearch: search,
-//                         cancellationWidget: Icon(
-//                           Icons.cancel,
-//                           color: Colors.white,
-//                         ),
-//                         onItemFound: (Post post, int index) {
-//                           return ListTile(
-//                             title: Text(post.title),
-//                             subtitle: Text(post.description),
-//                           );
-//                         },
-// //                        searchBarPadding: EdgeInsets.symmetric(horizontal: 10),
-//                         headerPadding: EdgeInsets.symmetric(horizontal: 10),
-//                         listPadding: EdgeInsets.symmetric(horizontal: 10),
-//                         searchBarStyle: SearchBarStyle(
-//                           backgroundColor: Colors.white,
-//                           padding: EdgeInsets.all(7),
-//                           borderRadius: BorderRadius.circular(6),
-//                         ),
-//                       ),
-//                     ),
+                    buildContainer(),
                     Text(
                       'Planets',
                       style: TextStyle(
@@ -125,170 +103,57 @@ class homeScreen extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(vertical: 10.0),
                       child: Column(
                         children: [
-                          Row(
-                            children: [
-                              CircleAvatar(
-                                  radius: 30.0,
-                                  backgroundColor: Colors.amber,
-                                  child: Image(
-                                    image: AssetImage('images/mercury.png'),
-                                  )),
-                              FlatButton(
-                                onPressed: () {
-                                  Get.to(Mercury());
-                                },
-                                child: Text(
-                                  'Mercury',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                  ),
-                                ),
-                              ),
-                            ],
+                          PlanetButton(
+                            planetName: 'Mercury',
+                            onPressed: (){Get.to(Mercury());},
+                            planetImage: 'images/mercury.png',
                           ),
-                          Row(
-                            children: [
-                              CircleAvatar(
-                                backgroundColor: Colors.black,
-                                radius: 30.0,
-                                child: Image(
-                                  image: AssetImage('images/venus.png'),
-                                ),
-                              ),
-                              FlatButton(
-                                onPressed: () {
-                                  Get.to(venus());
-                                },
-                                child: Text(
-                                  'Venus',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                  ),
-                                ),
-                              ),
-                            ],
+                          PlanetButton(
+                            planetName: 'Venus',
+                            onPressed: (){Get.to(venus());},
+                            planetImage: 'images/venus.png',
                           ),
-                          Row(
-                            children: [
-                              CircleAvatar(
-                                radius: 30.0,
-                                child: Image(
-                                  image: AssetImage('images/earth.png'),
-                                ),
-                              ),
-                              FlatButton(
-                                onPressed: () {
-                                  Get.to(earth());
-                                },
-                                child: Text(
-                                  'Earth',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                  ),
-                                ),
-                              ),
-                            ],
+                          PlanetButton(
+                            planetName: 'Earth',
+                            onPressed: (){Get.to(earth());},
+                            planetImage: 'images/earth.png',
                           ),
-                          Row(
-                            children: [
-                              CircleAvatar(
-                                radius: 30.0,
-                                child: Image(
-                                  image: AssetImage('images/mars.png'),
-                                ),
-                              ),
-                              FlatButton(
-                                onPressed: () {
-                                  Get.to(mars());
-                                },
-                                child: Text(
-                                  'Mars',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                  ),
-                                ),
-                              ),
-                            ],
+                          PlanetButton(
+                            planetName: 'Mars',
+                            onPressed: (){Get.to(mars());},
+                            planetImage: 'images/mars.png',
                           ),
-                          Row(
-                            children: [
-                              CircleAvatar(
-                                radius: 30.0,
-                                child: Image(
-                                    image: AssetImage('images/jupiter.png')),
-                              ),
-                              FlatButton(
-                                onPressed: () {
-                                  Get.to(jupiter());
-                                },
-                                child: Text(
-                                  'Jupiter',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                  ),
-                                ),
-                              ),
-                            ],
+                          PlanetButton(
+                            planetName: 'Jupiter',
+                            onPressed: (){Get.to(jupiter());},
+                            planetImage: 'images/jupiter.png',
                           ),
-                          Row(
-                            children: [
-                              CircleAvatar(
-                                radius: 30.0,
-                                child: Image(
-                                    image: AssetImage('images/uranus.png')),
-                              ),
-                              FlatButton(
-                                onPressed: () {
-                                  Get.to(uranus());
-                                },
-                                child: Text(
-                                  'Uranus',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                  ),
-                                ),
-                              ),
-                            ],
+                          PlanetButton(
+                            planetName: 'Uranus',
+                            onPressed: (){Get.to(uranus());},
+                            planetImage: 'images/uranus.png',
                           ),
-                          Row(
-                            children: [
-                              CircleAvatar(
-                                radius: 30.0,
-                                child: Image(
-                                    image: AssetImage('images/neptune.png')),
-                              ),
-                              FlatButton(
-                                onPressed: () {
-                                  Get.to(neptune());
-                                },
-                                child: Text(
-                                  'Neptune',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                  ),
-                                ),
-                              ),
-                            ],
+                          PlanetButton(
+                            planetName: 'Neptune',
+                            onPressed: (){Get.to(neptune());},
+                            planetImage: 'images/neptune.png',
                           ),
-                          Row(
-                            children: [
-                              CircleAvatar(
-                                radius: 30.0,
-                                child: Image(
-                                    image: AssetImage('images/pluto.png')),
+                          Padding(
+                            padding: const EdgeInsets.only(right: 290.0, bottom: 10.0),
+                            child: Text(
+                              'Moons',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20.0,
                               ),
-                              FlatButton(
-                                onPressed: () {
-                                  Get.to(pluto());
-                                },
-                                child: Text(
-                                  'Pluto',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                  ),
-                                ),
-                              ),
-                            ],
+                            ),
+                          ),
+                          PlanetButton(
+                            planetName: 'Pluto',
+                            onPressed: (){Get.to(pluto());},
+                            planetImage: 'images/pluto.png',
                           ),
                         ],
                       ),
@@ -302,4 +167,7 @@ class homeScreen extends StatelessWidget {
       ),
     );
   }
+
+
 }
+

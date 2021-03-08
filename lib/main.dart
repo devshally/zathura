@@ -12,7 +12,7 @@ void main(){
     getPages: [
       GetPage(name: '/', page: ()=> splashScreen()),
       GetPage(name: '/onBoarding', page: ()=> OnBoarding()),
-      GetPage(name: '/Home', page: ()=> homeScreen()),
+      GetPage(name: '/Home', page: ()=> HomeScreen()),
     ],
     home: splashScreen(),
   ));
